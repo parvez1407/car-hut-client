@@ -1,23 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/Routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='max-w-[1440px] mx-auto text-gray-500'>
+      <ToastContainer position="top-center" />
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
