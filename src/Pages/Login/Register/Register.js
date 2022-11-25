@@ -10,6 +10,9 @@ const Register = () => {
     const [error, setError] = useState('');
     const [role, setRole] = useState('buyer');
     const imgbbHostingKey = process.env.REACT_APP_imgbb_key;
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleSubmit = e => {
@@ -83,6 +86,7 @@ const Register = () => {
                                     console.log(data);
                                 })
                         }
+                        navigate(from, { replace: true })
                     })
                     .catch(err => console.error(err))
             })
@@ -117,6 +121,7 @@ const Register = () => {
                         })
                 }
                 toast.success('User Register Successfully', { autoClose: 500 })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
