@@ -8,7 +8,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 const Register = () => {
     const { createUser, updateUserProfile, loading, setLoading, googleProviderLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
-    const [role, setRole] = useState('');
+    const [role, setRole] = useState('buyer');
     const imgbbHostingKey = process.env.REACT_APP_imgbb_key;
 
 
@@ -55,12 +55,34 @@ const Register = () => {
                 createUser(email, password)
                     .then(result => {
                         const user = result.user;
+
                         // user profile update 
                         updateUserProfile(name, imageData.data.display_url)
                             .then(() => {
                                 toast.success('User Created Successfully', { autoClose: 500 })
                             })
                             .catch(err => console.error(err))
+                        if (user?.uid) {
+                            const users = {
+                                name: name,
+                                email: user.email,
+                                userImg: imageData.data.display_url,
+                                role
+                            }
+                            console.log(user);
+                            // save the user information to the database
+                            fetch(`http://localhost:5000/user/${user?.email}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify(users)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data);
+                                })
+                        }
                     })
                     .catch(err => console.error(err))
             })
@@ -73,6 +95,27 @@ const Register = () => {
         googleProviderLogin()
             .then(result => {
                 const user = result.user;
+                if (user?.uid) {
+                    const users = {
+                        name: user.displayName,
+                        email: user.email,
+                        userImg: user.photoURL,
+                        role
+                    }
+                    console.log(user);
+                    // save the user information to the database
+                    fetch(`http://localhost:5000/user/${user?.email}`, {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(users)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                        })
+                }
                 toast.success('User Register Successfully', { autoClose: 500 })
             })
             .catch(error => {
@@ -113,7 +156,7 @@ const Register = () => {
                                 <input type="password" name="password" id="password" placeholder="Enter Your Password" className="w-full px-4 py-3 rounded-md border-gray-500 dark:bg-gray-800 dark:text-gray-100 focus:border-violet-400" required />
                             </div>
                             <div>
-                                <input type="radio" value="buyer" name="role" onChange={e => setRole(e.target.value)} required /> Buyer
+                                <input type="radio" value="buyer" name="role" onChange={e => setRole(e.target.value)} required checked /> Buyer
                                 <input type="radio" value="seller" name="role" onChange={e => setRole(e.target.value)} className='ml-4' required /> Seller
                             </div>
                             <button className="block w-full p-3 text-center rounded-md dark:text-gray-200 bg-gradient-to-r from-indigo-600 to-purple-600 hover:to-indigo-600 hover:from-purple-600">Register</button>
