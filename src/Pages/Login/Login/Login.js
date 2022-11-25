@@ -65,6 +65,27 @@ const Login = () => {
         googleProviderLogin()
             .then(result => {
                 const user = result.user;
+                if (user?.uid) {
+                    const users = {
+                        name: user.displayName,
+                        email: user.email,
+                        userImg: user.photoURL,
+                        role: 'buyer'
+                    }
+                    console.log(user);
+                    // save the user information to the database
+                    fetch(`http://localhost:5000/user/${user?.email}`, {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(users)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                        })
+                }
                 toast.success('User Register Successfully', { autoClose: 500 })
                 navigate(from, { replace: true })
             })
