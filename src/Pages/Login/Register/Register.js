@@ -104,7 +104,7 @@ const Register = () => {
                         name: user.displayName,
                         email: user.email,
                         userImg: user.photoURL,
-                        role
+                        role: 'buyer'
                     }
                     console.log(user);
                     // save the user information to the database
