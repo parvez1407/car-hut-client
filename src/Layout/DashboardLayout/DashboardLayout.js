@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useAdmin from '../../hooks/useAdmin';
+import Footer from '../../Pages/Shared/Footer/Footer';
 import Header from '../../Pages/Shared/Header/Header';
 
 
@@ -22,32 +23,33 @@ const DashboardLayout = () => {
 
                         {
                             !isAdmin ?
-                                <div>
+                                <>
                                     {
                                         user?.uid ?
                                             <>
                                                 <li className='text-gray-500'><Link to='/dashboard'>My Booking</Link></li>
-                                                <li className='text-gray-500'><Link to='/dashboard'>Wishlist</Link></li>
+                                                <li className='text-gray-500'><Link to='/dashboard/wishlist'>Wishlist</Link></li>
                                             </>
                                             :
                                             <>
                                             </>
                                     }
-                                </div>
+                                </>
                                 :
-                                <div>
+                                <>
                                     {
                                         isAdmin && <>
-                                            <li className='text-gray-500'><Link to='/dashboard/users'>All Sellers</Link></li>
-                                            <li className='text-gray-500'><Link to='/dashboard/add-doctor'>All Buyers</Link></li>
+                                            <li className='text-gray-500'><Link to='/dashboard/all-sellers'>All Sellers</Link></li>
+                                            <li className='text-gray-500'><Link to='/dashboard/all-buyers'>All Buyers</Link></li>
                                         </>
                                     }
-                                </div>
+                                </>
                         }
                     </ul>
 
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
