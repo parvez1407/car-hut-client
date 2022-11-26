@@ -8,6 +8,7 @@ import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
 import AddProducts from "../../Pages/Dashboard/Seller/AddProducts/AddProducts";
 import MyProducts from "../../Pages/Dashboard/Seller/MyProducts/MyProducts";
+import CategoryProducts from "../../Pages/Home/Categories/CategoryProducts/CategoryProducts";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/category/:id',
+                element: <PrivateRoute><CategoryProducts></CategoryProducts></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
         ]
     },

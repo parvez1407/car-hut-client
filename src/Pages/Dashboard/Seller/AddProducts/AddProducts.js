@@ -26,6 +26,7 @@ const AddProducts = () => {
                     console.log(imgData.data.url);
                     const product = {
                         category_id: data.category_id,
+                        category_name: data.category_name,
                         productName: data.productName,
                         buyingPrice: data.buyingPrice,
                         buyingYear: data.buyingYear,
@@ -70,15 +71,26 @@ const AddProducts = () => {
                     {errors.productName && <p className='text-red-400'>{errors.productName?.message}</p>}
                 </div>
                 <div className="form-control w-full">
-                    <label className="label"><span className="label-text text-gray-400">Brand Category</span></label>
+                    <label className="label"><span className="label-text text-gray-400">Brand Category ID</span></label>
                     <select
-                        {...register('category_id', { required: 'Please select his specialty' })}
+                        {...register('category_id', { required: 'Please select category id' })}
                         className="select select-bordered w-full">
-                        <option value="01">Toyota</option>
-                        <option value="02">Mercedes Benz</option>
-                        <option value="03">BMW</option>
+                        <option value="01">01 (Toyota)</option>
+                        <option value="02">02 (Mercedes Benz)</option>
+                        <option value="03">03 (BMW)</option>
                     </select>
                     {errors.category_id && <p className='text-red-400'>{errors.category_id?.message}</p>}
+                </div>
+                <div className="form-control w-full">
+                    <label className="label"><span className="label-text text-gray-400">Brand Category Name</span></label>
+                    <select
+                        {...register('category_name', { required: 'Please select category name' })}
+                        className="select select-bordered w-full">
+                        <option value="Toyota">Toyota</option>
+                        <option value="Mercedes Benz">Mercedes Benz</option>
+                        <option value="BMW">BMW</option>
+                    </select>
+                    {errors.category_name && <p className='text-red-400'>{errors.category_name?.message}</p>}
                 </div>
                 <div className="form-control w-full">
                     <label className="label"><span className="label-text text-gray-400">Car Condition</span></label>

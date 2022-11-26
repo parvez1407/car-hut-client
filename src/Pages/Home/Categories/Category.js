@@ -10,7 +10,7 @@ const Category = ({ category }) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl mb-4 text-purple-900">{name}</h2>
-                <Link><button className='block px-5 text-center rounded-md dark:text-gray-200 bg-indigo-800  hover:bg-purple-900'>See All</button></Link>
+                <Link to={`/category/${id}`}><button className='block px-5 text-center rounded-md dark:text-gray-200 bg-indigo-800  hover:bg-purple-900'>See All</button></Link>
             </div>
         </div>
     );
