@@ -11,16 +11,16 @@ const Header = () => {
             .catch(err => console.error(err))
     }
     const menuItems = <React.Fragment>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
+        <li className='text-indigo-500 hover:text-purple-500'><Link to='/'>Home</Link></li>
+        <li className='text-indigo-500 hover:text-purple-500'><Link to='/about'>About</Link></li>
+        <li className='text-indigo-500 hover:text-purple-500'><Link to='/blog'>Blog</Link></li>
         {user?.uid ?
             <>
-                <li><Link to='/dashboard'>Dashboard</Link></li>
-                <li><Link to='/login'><button onClick={handleLogout}>Logout</button></Link></li>
+                <li className='text-indigo-500 hover:text-purple-500'><Link to='/dashboard'>Dashboard</Link></li>
+                <li className='text-indigo-500 hover:text-purple-500'><Link to='/login'><button onClick={handleLogout}>Logout</button></Link></li>
             </>
             :
-            <li><Link to='/login'>Login</Link></li>
+            <li className='text-indigo-500 hover:text-purple-500'><Link to='/login'>Login</Link></li>
         }
     </React.Fragment>
 
