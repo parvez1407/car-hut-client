@@ -6,6 +6,8 @@ import About from "../../Pages/About/About";
 import Blog from "../../Pages/Blog/Blog";
 import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
+import MyBookings from "../../Pages/Dashboard/Buyers/MyBookings/MyBookings";
+import WishList from "../../Pages/Dashboard/Buyers/WishList/WishList";
 import AddProducts from "../../Pages/Dashboard/Seller/AddProducts/AddProducts";
 import MyProducts from "../../Pages/Dashboard/Seller/MyProducts/MyProducts";
 import CategoryProducts from "../../Pages/Home/Categories/CategoryProducts/CategoryProducts";
@@ -69,6 +71,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/add-product',
                 element: <SellersRoute><AddProducts></AddProducts></SellersRoute>
+            },
+            {
+                path: '/dashboard/my-bookings',
+                element: <PrivateRoute><MyBookings></MyBookings></PrivateRoute>
+            },
+            {
+                path: '/dashboard/wishlist',
+                element: <PrivateRoute><WishList></WishList></PrivateRoute>
             },
         ]
     }
