@@ -29,7 +29,6 @@ const MyBookings = () => {
                             <th>Name of Product</th>
                             <th>Price</th>
                             <th>Payment</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -50,10 +49,7 @@ const MyBookings = () => {
                                     ${bookProduct.sealingPrice}
                                 </td>
                                 <td>
-                                    <button className="btn border-0 btn-xs bg-indigo-500">Please Pay</button>
-                                </td>
-                                <td>
-                                    <button className="btn border-0 btn-xs bg-red-500">Delete</button>
+                                    <button className="btn border-0 btn-xs bg-indigo-500">Pay</button>
                                 </td>
                             </tr>)
                         }
