@@ -6,7 +6,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 
 const Register = () => {
-    const { createUser, updateUserProfile, loading, setLoading, googleProviderLogin } = useContext(AuthContext);
+    const { createUser, updateUserProfile, googleProviderLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [role, setRole] = useState('buyer');
     const imgbbHostingKey = process.env.REACT_APP_imgbb_key;

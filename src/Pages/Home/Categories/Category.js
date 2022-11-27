@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Category = ({ category }) => {
-    const { cateImg, name, id, _id } = category;
+    const { cateImg, name, id } = category;
     return (
         <div className='card text-white p-6 md:card-side shadow-xl bg-gray-50'>
             <figure>

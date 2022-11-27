@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CategoryProduct = ({ product }) => {
+const CategoryProduct = ({ product, setBookProduct }) => {
     const { productName, buyingPrice, buyingYear, condition, description, location, phnNumber, postedDate, productImg, sealingPrice, yearsOfUse, sellerName } = product;
     return (
         <div className="max-w-md rounded-sm shadow-md dark:bg-indigo-900 dark:text-gray-100">
@@ -25,7 +25,7 @@ const CategoryProduct = ({ product }) => {
                     </div>
                     <div className='flex justify-between'>
                         <p className='text-red-300 text-md font-bold'>Buying Year: {buyingYear}</p>
-                        <p className='text-red-300 text-md font-bold'>Years of Use: ${yearsOfUse}</p>
+                        <p className='text-red-300 text-md font-bold'>Years of Use: {yearsOfUse} Year's</p>
                     </div>
 
                     <div className='flex justify-between'>
@@ -38,7 +38,12 @@ const CategoryProduct = ({ product }) => {
                     </div>
 
                 </div>
-                <button type="button" className="block w-full p-3 text-center rounded-sm dark:text-gray-200 bg-gradient-to-r from-indigo-600 to-purple-600 hover:to-indigo-600 hover:from-purple-600 shadow-md shadow-purple-600">Book Now</button>
+
+                <label
+                    onClick={() => setBookProduct(product)}
+                    htmlFor="booking-modal"
+                    className="block w-full p-3 text-center rounded-sm dark:text-gray-200 bg-gradient-to-r from-indigo-600 to-purple-600 hover:to-indigo-600 hover:from-purple-600 shadow-md shadow-purple-600"
+                >Book Now</label>
 
             </div>
         </div>

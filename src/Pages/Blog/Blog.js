@@ -7,7 +7,7 @@ const Blog = () => {
     return (
         <div>
             <div className="dark:bg-gray-100 dark:text-gray-100 my-5">
-                <div className="container max-w-9xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-purple-900">
+                <div className="container max-w-9xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-indigo-900">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>
                         <Link rel="noopener noreferrer" to="/" className="px-2 py-1 font-bold rounded dark:bg-indigo-500 dark:text-gray-900">Database</Link>
@@ -28,7 +28,7 @@ const Blog = () => {
                 </div>
             </div>
             <div className="dark:bg-gray-100 dark:text-gray-100 my-5">
-                <div className="container max-w-7xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-purple-700">
+                <div className="container max-w-7xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-indigo-700">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>
                         <Link rel="noopener noreferrer" to="/" className="px-2 py-1 font-bold rounded dark:bg-indigo-500 dark:text-gray-900">JSON</Link>
@@ -49,7 +49,7 @@ const Blog = () => {
                 </div>
             </div>
             <div className="dark:bg-gray-100 dark:text-gray-100 my-5">
-                <div className="container max-w-9xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-purple-900">
+                <div className="container max-w-9xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-indigo-900">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>
                         <Link rel="noopener noreferrer" to="/" className="px-2 py-1 font-bold rounded dark:bg-indigo-500 dark:text-gray-900">JS/Node.js</Link>
@@ -70,7 +70,7 @@ const Blog = () => {
                 </div>
             </div>
             <div className="dark:bg-gray-100 dark:text-gray-100 my-5">
-                <div className="container max-w-7xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-purple-700">
+                <div className="container max-w-7xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-indigo-700">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>
                         <Link rel="noopener noreferrer" to="/" className="px-2 py-1 font-bold rounded dark:bg-indigo-500 dark:text-gray-900">Node.js</Link>

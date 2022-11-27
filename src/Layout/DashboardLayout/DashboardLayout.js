@@ -41,7 +41,7 @@ const DashboardLayout = () => {
 
                                 :
                                 <>
-                                    <li className='text-gray-500'><Link to='/dashboard'>My Booking</Link></li>
+                                    <li className='text-gray-500'><Link to='/dashboard/my-bookings'>My Booking</Link></li>
                                     <li className='text-gray-500'><Link to='/dashboard/wishlist'>Wishlist</Link></li>
                                 </>
                         }
