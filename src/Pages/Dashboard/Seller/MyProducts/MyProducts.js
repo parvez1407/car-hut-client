@@ -26,8 +26,9 @@ const MyProducts = () => {
                         <tr>
                             <th>Image</th>
                             <th>Name of Product</th>
+                            <th>Price</th>
                             <th>Status</th>
-                            <th>Email</th>
+                            <th>Advertise</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -44,6 +45,9 @@ const MyProducts = () => {
                                 </td>
                                 <td>
                                     {product.productName}
+                                </td>
+                                <td>
+                                    ${product.sealingPrice}
                                 </td>
                                 <td>
                                     Available
