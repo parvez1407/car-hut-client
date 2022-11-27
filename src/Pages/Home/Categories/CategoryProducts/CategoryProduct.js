@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../../../context/AuthProvider';
 
 const CategoryProduct = ({ product, setBookProduct }) => {
-    const { productName, buyingPrice, buyingYear, condition, description, location, phnNumber, postedDate, productImg, sealingPrice, yearsOfUse, sellerName } = product;
+    const { user } = useContext(AuthContext);
+    const { productName, buyingPrice, buyingYear, condition, description, location, phnNumber, postedDate, productImg, sealingPrice, yearsOfUse, sellerName, _id } = product;
+
+    const handleWishlist = () => {
+        const wishlist = {
+            buyerName: user.displayName,
+            buyerEmail: user.email,
+            sellerPhone: phnNumber,
+            productId: _id,
+            productName,
+            productImg,
+            sellerName,
+            sealingPrice
+        }
+        fetch('http://localhost:5000/wishlists', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(wishlist)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    setBookProduct(null)
+                    toast.success(`${productName} Car Added to Wishlist`, { autoClose: 500 })
+                }
+            })
+    }
+
+
     return (
         <div className="max-w-md rounded-sm shadow-md dark:bg-indigo-900 dark:text-gray-100">
             <div>
@@ -34,7 +66,7 @@ const CategoryProduct = ({ product, setBookProduct }) => {
                     </div>
                     <div className='flex justify-between'>
                         <p className='text-gray-50 text-md'>Seller Name: {sellerName} <span className='text-red-500'> X</span></p>
-                        <button className='btn btn-sm bg-indigo-500'>Wishlist</button>
+                        <button onClick={handleWishlist} className='btn btn-sm bg-indigo-500'>Wishlist</button>
                     </div>
 
                 </div>
