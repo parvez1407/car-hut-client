@@ -7,10 +7,10 @@ const Footer = () => {
             <div className='footer p-10  text-gray-600'>
                 <div>
                     <span className="footer-title">Services</span>
-                    <Link to='' className="link link-hover">Branding</Link>
-                    <Link to='' className="link link-hover">Design</Link>
-                    <Link to='' className="link link-hover">Marketing</Link>
-                    <Link to='' className="link link-hover">Advertisement</Link>
+                    <Link to='' className="link link-hover">Recondition</Link>
+                    <Link to='' className="link link-hover">BMW</Link>
+                    <Link to='' className="link link-hover">Mercedes Benz</Link>
+                    <Link to='' className="link link-hover">Toyota</Link>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>
