@@ -9,7 +9,11 @@ const MyProducts = () => {
     const { data: myProducts = [], isLoading, refetch } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myproducts/${user?.email}`);
+            const res = await fetch(`http://localhost:5000/myproducts/${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('carHut-token')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
@@ -19,7 +23,10 @@ const MyProducts = () => {
         const proceed = window.confirm('Are you sure, you want to Delete?');
         if (proceed) {
             fetch(`http://localhost:5000/products/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('carHut-token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
@@ -45,7 +52,8 @@ const MyProducts = () => {
         fetch('http://localhost:5000/promotions', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('carHut-token')}`
             },
             body: JSON.stringify(advertiseProduct)
         })

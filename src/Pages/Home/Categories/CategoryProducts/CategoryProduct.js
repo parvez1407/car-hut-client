@@ -19,9 +19,10 @@ const CategoryProduct = ({ product, setBookProduct }) => {
             sealingPrice
         }
         fetch('http://localhost:5000/wishlists', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('carHut-token')}`
             },
             body: JSON.stringify(wishlist)
         })

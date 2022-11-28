@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import Loader from '../../../context/Loader/Loader';
 
@@ -8,7 +8,11 @@ const AllSellers = () => {
     const { data: sellers = [], refetch, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/sellers');
+            const res = await fetch('http://localhost:5000/sellers', {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('carHut-token')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
@@ -21,7 +25,8 @@ const AllSellers = () => {
         fetch('http://localhost:5000/verification', {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('carHut-token')}`
             },
             body: JSON.stringify(verification)
         })
@@ -40,7 +45,10 @@ const AllSellers = () => {
         const proceed = window.confirm('Are you sure, you want to Delete?');
         if (proceed) {
             fetch(`http://localhost:5000/sellers/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('carHut-token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
@@ -77,29 +85,29 @@ const AllSellers = () => {
 
                     <tbody>
                         {
-                            sellers?.map(seller => <tr key={seller._id}>
+                            sellers?.map(seller => <tr key={seller?._id}>
 
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
-                                            <img src={seller.userImg} alt="Avatar Tailwind CSS Component" />
+                                            <img src={seller?.userImg} alt="Avatar Tailwind CSS Component" />
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    {seller.name}
+                                    {seller?.name}
                                 </td>
-                                <td>{seller.email}</td>
+                                <td>{seller?.email}</td>
                                 <th>
                                     {
-                                        !seller.verified && <button onClick={() => handleVerify(seller)} className="btn border-0 btn-xs bg-slate-500">Please Verify</button>
+                                        !seller?.verified && <button onClick={() => handleVerify(seller)} className="btn border-0 btn-xs bg-slate-500">Please Verify</button>
                                     }
                                     {
-                                        seller.verified && <span className='text-green-600'>Verified</span>
+                                        seller?.verified && <span className='text-green-600'>Verified</span>
                                     }
                                 </th>
                                 <th>
-                                    <button onClick={() => handleDelete(seller._id)} className="btn border-0 btn-xs bg-red-500">Delete</button>
+                                    <button onClick={() => handleDelete(seller?._id)} className="btn border-0 btn-xs bg-red-500">Delete</button>
                                 </th>
                             </tr>)
                         }

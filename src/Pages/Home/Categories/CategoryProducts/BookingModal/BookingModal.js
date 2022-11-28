@@ -4,7 +4,7 @@ import { AuthContext } from '../../../../../context/AuthProvider';
 
 const BookingModal = ({ bookProduct, setBookProduct }) => {
     const { user } = useContext(AuthContext);
-    const { productName, _id, buyingPrice, buyingYear, condition, description, location, phnNumber, postedDate, productImg, sealingPrice, yearsOfUse, sellerName } = bookProduct;
+    const { productName, _id, phnNumber, productImg, sealingPrice, sellerName } = bookProduct;
 
     const handleBooking = event => {
         event.preventDefault();
@@ -32,7 +32,8 @@ const BookingModal = ({ bookProduct, setBookProduct }) => {
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('carHut-token')}`
             },
             body: JSON.stringify(booking)
         })

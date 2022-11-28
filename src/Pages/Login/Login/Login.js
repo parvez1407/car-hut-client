@@ -49,7 +49,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('User Login Successfully', { autoClose: 500 })
-                navigate(from, { replace: true })
+                getUserToken(email);
             })
             .catch(error => {
                 console.error(error.message)
@@ -84,10 +84,11 @@ const Login = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log(data);
+                            toast.success('User Register Successfully', { autoClose: 500 })
+                            getUserToken(user.email);
                         })
                 }
-                toast.success('User Register Successfully', { autoClose: 500 })
-                navigate(from, { replace: true })
+
             })
             .catch(error => {
                 console.error(error)
@@ -95,6 +96,20 @@ const Login = () => {
                 toast.error(errorMessage, { autoClose: 500 });
             })
     }
+
+    const getUserToken = email => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.accessToken) {
+                    localStorage.setItem('carHut-token', data.accessToken)
+                    navigate(from, { replace: true })
+                }
+            })
+    }
+
+
+
 
     return (
         <div className="sm:px-0 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">

@@ -1,11 +1,5 @@
 # CAR HUT
 
-## Admin ID and Password
-
-adminEmail: <yawediv304@probdd.com>
-
-adminPassword: <N@123456>
-
 # Features
 
 Best Place To Choose and buy used Car!!!
@@ -27,6 +21,12 @@ The aspect of the site is that people can have access to certified used cars at 
 12. JWT token implemented.
 
 This Projects was created with the help of tailwind, mamba ui,daisy ui, storyset.net, react-js, react router dom, react icons, firebase, react toastify,axios, react-hook-form, react-query.
+
+## Admin ID and Password
+
+adminEmail: <yawediv304@probdd.com>
+
+adminPassword: <N@123456>
 
 ## Live Link
 

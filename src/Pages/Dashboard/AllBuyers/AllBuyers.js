@@ -7,7 +7,11 @@ const AllBuyers = () => {
     const { data: buyers = [], isLoading, refetch } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/buyers');
+            const res = await fetch('http://localhost:5000/buyers', {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('carHut-token')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
@@ -17,7 +21,10 @@ const AllBuyers = () => {
         const proceed = window.confirm('Are you sure, you want to Delete?');
         if (proceed) {
             fetch(`http://localhost:5000/buyers/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('carHut-token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
