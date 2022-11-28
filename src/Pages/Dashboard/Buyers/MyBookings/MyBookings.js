@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../context/AuthProvider';
 
 
@@ -7,15 +8,20 @@ const MyBookings = () => {
     const { user } = useContext(AuthContext);
     const [bookedProducts, setBookedProducts] = useState();
     // console.log(bookedProducts);
-    axios.get(`http://localhost:5000/bookings/${user?.email}`)
-        .then(res => {
-            // console.log(res.data);
-            setBookedProducts(res.data)
 
-        })
-        .catch(err => {
-            console.error(err);
-        })
+    useEffect(() => {
+        axios.get(`http://localhost:5000/bookings/${user?.email}`)
+            .then(res => {
+                // console.log(res.data);
+                setBookedProducts(res.data)
+
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }, [user?.email]);
+
+
 
     return (
         <div>
@@ -34,7 +40,7 @@ const MyBookings = () => {
 
                     <tbody>
                         {
-                            bookedProducts?.map(bookProduct => <tr key={bookProduct._id}>
+                            bookedProducts?.map(bookProduct => <tr key={bookProduct?._id}>
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
@@ -49,7 +55,16 @@ const MyBookings = () => {
                                     ${bookProduct.sealingPrice}
                                 </td>
                                 <td>
-                                    <button className="btn border-0 btn-xs bg-indigo-500">Pay</button>
+                                    {
+                                        bookProduct.sealingPrice && !bookProduct.paid && <Link
+                                            to={`/dashboard/payment/${bookProduct?._id}`}>
+                                            <button className="btn border-0 btn-sm bg-indigo-500 hover:bg-purple-500">Pay</button>
+                                        </Link>
+                                    }
+                                    {
+                                        bookProduct.sealingPrice && bookProduct.paid && <span className='text-lg text-green-600'>Paid</span>
+                                    }
+
                                 </td>
                             </tr>)
                         }

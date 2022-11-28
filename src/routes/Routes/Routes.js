@@ -8,6 +8,7 @@ import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
 import MyBookings from "../../Pages/Dashboard/Buyers/MyBookings/MyBookings";
 import WishList from "../../Pages/Dashboard/Buyers/WishList/WishList";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 import AddProducts from "../../Pages/Dashboard/Seller/AddProducts/AddProducts";
 import MyProducts from "../../Pages/Dashboard/Seller/MyProducts/MyProducts";
 import CategoryProducts from "../../Pages/Home/Categories/CategoryProducts/CategoryProducts";
@@ -79,6 +80,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/wishlist',
                 element: <PrivateRoute><WishList></WishList></PrivateRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/booking/${params.id}`)
             },
         ]
     }

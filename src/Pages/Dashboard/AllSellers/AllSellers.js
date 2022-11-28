@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import Loader from '../../../context/Loader/Loader';
 
 const AllSellers = () => {
-    const { data: sellers, isLoading } = useQuery({
+
+    const { data: sellers = [], refetch, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/sellers');
@@ -11,6 +13,49 @@ const AllSellers = () => {
             return data;
         }
     })
+    const handleVerify = (seller) => {
+        const verification = {
+            email: seller.email
+        }
+
+        fetch('http://localhost:5000/verification', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(verification)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success('Make Admin Successfully', { autoClose: 500 })
+                    refetch();
+                }
+            })
+    }
+
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure, you want to Delete?');
+        if (proceed) {
+            fetch(`http://localhost:5000/sellers/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        refetch()
+                        toast.success('Data Successfully Deleted', { autoClose: 500 })
+                    }
+                })
+
+        }
+    }
+
+
+
     if (isLoading) {
         return <Loader></Loader>
     }
@@ -33,6 +78,7 @@ const AllSellers = () => {
                     <tbody>
                         {
                             sellers?.map(seller => <tr key={seller._id}>
+
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
@@ -45,10 +91,15 @@ const AllSellers = () => {
                                 </td>
                                 <td>{seller.email}</td>
                                 <th>
-                                    <button className="btn border-0 btn-xs bg-slate-500">Please Verify</button>
+                                    {
+                                        !seller.verified && <button onClick={() => handleVerify(seller)} className="btn border-0 btn-xs bg-slate-500">Please Verify</button>
+                                    }
+                                    {
+                                        seller.verified && <span className='text-green-600'>Verified</span>
+                                    }
                                 </th>
                                 <th>
-                                    <button className="btn border-0 btn-xs bg-red-500">Delete</button>
+                                    <button onClick={() => handleDelete(seller._id)} className="btn border-0 btn-xs bg-red-500">Delete</button>
                                 </th>
                             </tr>)
                         }
