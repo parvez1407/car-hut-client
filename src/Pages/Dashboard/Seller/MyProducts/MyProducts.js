@@ -32,6 +32,30 @@ const MyProducts = () => {
 
         }
     }
+    const handleAdvertise = (product) => {
+        const advertiseProduct = {
+            productId: product._id,
+            productName: product.productName,
+            condition: product.condition,
+            productImg: product.productImg,
+            sealingPrice: product.sealingPrice,
+            sellerName: product.sellerName,
+            sellerEmail: product.sellerEmail
+        }
+        fetch('http://localhost:5000/promotions', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(advertiseProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success(`${product.productName} successfully Advertised`, { autoClose: 500 })
+                }
+            })
+    }
 
 
     if (isLoading) {
@@ -80,10 +104,10 @@ const MyProducts = () => {
 
                                 </td>
                                 <td>
-                                    <button className="btn border-0 btn-xs bg-indigo-500" disabled={product.paid}>Advertise</button>
+                                    <button onClick={() => handleAdvertise(product)} className="btn border-0 btn-xs bg-indigo-500" disabled={product.paid}>Advertise</button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelete(product._id)} className="btn border-0 btn-xs bg-red-500">Delete</button>
+                                    <button onClick={() => handleDelete(product._id)} className="btn border-0 btn-xs bg-red-500" disabled={product.paid}>Delete</button>
                                 </td>
                             </tr>)
                         }

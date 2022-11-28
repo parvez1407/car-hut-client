@@ -22,8 +22,8 @@ const CustomerReview = () => {
                     </div>
                 </div>
                 <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                    <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                    <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
+                    <p>Car Hut does more than simply show listings from local dealers, however. </p>
+                    <p>It also showcases the best deals in a buyer’s area as well as upcoming seasonal deals and pricing on upcoming models to help car shoppers focus their search.</p>
                 </div>
             </div>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100">
@@ -45,8 +45,8 @@ const CustomerReview = () => {
                     </div>
                 </div>
                 <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                    <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                    <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
+                    <p>Car Hut uses advanced algorithms that compare every detail of a car to similar cars on the marketplace to assess the market value of any vehicle.</p>
+                    <p> Combined with information on how long a car has been listed as well as whether its price has risen or dropped over time, this helps shoppers know if they’re looking at a good deal or if they have room to negotiate.</p>
                 </div>
             </div>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100">
@@ -68,8 +68,8 @@ const CustomerReview = () => {
                     </div>
                 </div>
                 <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                    <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                    <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
+                    <p>Recently bought a Mercedes F1 from CAR HUT. Awesome service and secure payment system. </p>
+                    <p>Truly satisfied. Cheers!!!</p>
                 </div>
             </div>
         </div>
