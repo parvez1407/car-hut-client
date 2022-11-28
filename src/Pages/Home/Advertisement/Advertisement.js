@@ -6,7 +6,7 @@ const Advertisement = () => {
     const { data: promotions = [], isLoading } = useQuery({
         queryKey: ['promotions'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/promotions');
+            const res = await fetch('https://car-hut-server.vercel.app/promotions');
             const data = await res.json();
             return data;
         }

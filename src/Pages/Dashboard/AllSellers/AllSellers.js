@@ -8,7 +8,7 @@ const AllSellers = () => {
     const { data: sellers = [], refetch, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/sellers', {
+            const res = await fetch('https://car-hut-server.vercel.app/sellers', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('carHut-token')}`
                 }
@@ -22,7 +22,7 @@ const AllSellers = () => {
             email: seller.email
         }
 
-        fetch('http://localhost:5000/verification', {
+        fetch('https://car-hut-server.vercel.app/verification', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -44,7 +44,7 @@ const AllSellers = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to Delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/sellers/${id}`, {
+            fetch(`https://car-hut-server.vercel.app/sellers/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('carHut-token')}`

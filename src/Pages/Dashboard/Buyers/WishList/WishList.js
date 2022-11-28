@@ -9,7 +9,7 @@ const WishList = () => {
     const { data: wishProducts = [], isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/wishlists/${user?.email}`, {
+            const res = await fetch(`https://car-hut-server.vercel.app/wishlists/${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('carHut-token')}`
                 }

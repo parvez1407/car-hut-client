@@ -18,7 +18,7 @@ const CategoryProduct = ({ product, setBookProduct }) => {
             sellerName,
             sealingPrice
         }
-        fetch('http://localhost:5000/wishlists', {
+        fetch('https://car-hut-server.vercel.app/wishlists', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

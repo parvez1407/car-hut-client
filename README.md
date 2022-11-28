@@ -30,11 +30,11 @@ adminPassword: <N@123456>
 
 ## Live Link
 
-Hosted in Firebase ->[Live Link]()
+Hosted in Firebase ->[Live Link](https://car-hut-46396.web.app/)
 
 ## Context API
 
-[Api Link]()
+[Api Link](https://car-hut-server.vercel.app/)
 
 ## Resources & Credits
 

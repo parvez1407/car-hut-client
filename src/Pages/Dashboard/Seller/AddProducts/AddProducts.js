@@ -42,7 +42,7 @@ const AddProducts = () => {
                         sellerEmail: user.email
                     }
                     // save product information to the database
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://car-hut-server.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

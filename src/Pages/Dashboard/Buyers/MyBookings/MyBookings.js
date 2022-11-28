@@ -10,7 +10,7 @@ const MyBookings = () => {
     // console.log(bookedProducts);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/bookings/${user?.email}`, {
+        axios.get(`https://car-hut-server.vercel.app/bookings/${user?.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('carHut-token')}`
             }

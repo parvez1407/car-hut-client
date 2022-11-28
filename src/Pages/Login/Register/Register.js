@@ -74,7 +74,7 @@ const Register = () => {
                             }
                             console.log(user);
                             // save the user information to the database
-                            fetch(`http://localhost:5000/user/${user?.email}`, {
+                            fetch(`https://car-hut-server.vercel.app/user/${user?.email}`, {
                                 method: 'PUT',
                                 headers: {
                                     'content-type': 'application/json'
@@ -108,7 +108,7 @@ const Register = () => {
                     }
                     console.log(user);
                     // save the user information to the database
-                    fetch(`http://localhost:5000/user/${user?.email}`, {
+                    fetch(`https://car-hut-server.vercel.app/user/${user?.email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -132,7 +132,7 @@ const Register = () => {
     }
 
     const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
+        fetch(`https://car-hut-server.vercel.app/jwt?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 if (data.accessToken) {
