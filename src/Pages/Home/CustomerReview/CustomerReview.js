@@ -3,7 +3,7 @@ import React from 'react';
 const CustomerReview = () => {
     return (
         <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20'>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100" data-aos="fade-down" data-aos-duration="2000">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>
@@ -26,7 +26,7 @@ const CustomerReview = () => {
                     <p>It also showcases the best deals in a buyer’s area as well as upcoming seasonal deals and pricing on upcoming models to help car shoppers focus their search.</p>
                 </div>
             </div>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100" data-aos="fade-up" data-aos-duration="2000">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>
@@ -49,7 +49,7 @@ const CustomerReview = () => {
                     <p> Combined with information on how long a car has been listed as well as whether its price has risen or dropped over time, this helps shoppers know if they’re looking at a good deal or if they have room to negotiate.</p>
                 </div>
             </div>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-indigo-900 dark:text-gray-100" data-aos="fade-down" data-aos-duration="2000">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>

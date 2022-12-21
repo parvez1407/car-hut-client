@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import registerImage from '../../../assets/register.png';
+// import registerImage from '../../../assets/register.png';
 import { AuthContext } from '../../../context/AuthProvider';
+import Lottie from "lottie-react";
+import register from "../../../assets/Register.json";
 
 
 const Register = () => {
@@ -147,10 +149,11 @@ const Register = () => {
     return (
         <div className="sm:px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="flex flex-col items-center justify-between lg:flex-row">
-                <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
-                    <img src={registerImage} alt="" />
+                <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0" data-aos="zoom-in" data-aos-duration="2000">
+                    {/* <img src={registerImage} alt="" /> */}
+                    <Lottie animationData={register} loop={true} />
                 </div>
-                <div className="lg:w-1/2">
+                <div className="lg:w-1/2" data-aos="zoom-in" data-aos-duration="2000">
                     <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-indigo-900 dark:text-gray-100 mt-10">
                         <h1 className="text-3xl font-bold text-center">Register</h1>
 

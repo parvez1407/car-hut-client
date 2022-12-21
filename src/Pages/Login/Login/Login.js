@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import loginImage from '../../../assets/login.png';
 import { AuthContext } from '../../../context/AuthProvider';
 import SmallSpinner from '../../../context/Loader/SmallSpinner';
+import Lottie from "lottie-react";
+import login from "../../../assets/Login.json";
 
 
 const Login = () => {
@@ -114,10 +116,11 @@ const Login = () => {
     return (
         <div className="sm:px-0 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="flex flex-col items-center justify-between lg:flex-row">
-                <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
-                    <img src={loginImage} alt="" className='w-full' />
+                <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0" data-aos="zoom-in" data-aos-duration="2000">
+                    {/* <img src={loginImage} alt="" className='w-full' /> */}
+                    <Lottie animationData={login} loop={true} />
                 </div>
-                <div className="lg:w-1/2">
+                <div className="lg:w-1/2" data-aos="zoom-in" data-aos-duration="2000">
                     <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-indigo-900 dark:text-gray-100 mt-10">
                         <h1 className="text-3xl font-bold text-center">Login</h1>
                         <p className='text-red-500 my-3 text-center'>{error}</p>

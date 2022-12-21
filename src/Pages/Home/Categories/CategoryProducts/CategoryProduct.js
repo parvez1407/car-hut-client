@@ -40,7 +40,7 @@ const CategoryProduct = ({ product, setBookProduct }) => {
         <>
             {
                 !product.paid &&
-                <div className="max-w-md rounded-sm shadow-md dark:bg-indigo-900 dark:text-gray-100">
+                <div className="max-w-md rounded-sm shadow-md dark:bg-indigo-900 dark:text-gray-100" data-aos="fade-up" data-aos-duration="2000">
                     <div>
                         <img src={productImg} alt="" className="object-cover object-center w-full rounded-t-sm h-72 dark:bg-gray-500" />
                         <div className='flex justify-between px-4'>

@@ -3,7 +3,7 @@ import update from '../../../assets/update.jpg'
 
 const GetUpdate = () => {
     return (
-        <div className="w-full dark:bg-indigo-600 rounded-md" style={{ backgroundImage: `url(${update})`, backgroundPosition: 'center', backgroundBlendMode: 'multiply', backgroundZize: 'cover', }}>
+        <div className="w-full dark:bg-indigo-600 rounded-md" style={{ backgroundImage: `url(${update})`, backgroundPosition: 'center', backgroundBlendMode: 'multiply', backgroundZize: 'cover', }} data-aos="fade-down" data-aos-duration="2000">
             <div className="container flex flex-col flex-wrap content-center justify-center p-4 py-20 mx-auto md:p-10">
                 <h1 className="text-5xl antialiased font-semibold leading-none text-center dark:text-gray-100 mb-5">Get Our Updates</h1>
                 <div className="flex flex-row">

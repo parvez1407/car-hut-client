@@ -7,7 +7,7 @@ const Blog = () => {
     return (
         <div>
             <h1 className='text-4xl text-center text-indigo-700 font-bold my-5'>Welcome to My Blog</h1>
-            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify">
+            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify" data-aos="fade-right" data-aos-duration="2000">
                 <div className="max-w-9xl px-10 py-6 mx-auto rounded-lg shadow-sm border-2 border-indigo-700">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>
@@ -52,7 +52,7 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
-            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify">
+            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify" data-aos="fade-left" data-aos-duration="2000">
                 <div className="max-w-7xl px-10 py-6 mx-auto rounded-lg shadow-sm border-2 border-indigo-700">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>
@@ -81,7 +81,7 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
-            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify">
+            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify" data-aos="fade-right" data-aos-duration="2000">
                 <div className="max-w-9xl px-10 py-6 mx-auto rounded-lg shadow-sm border-2 border-indigo-700">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>
@@ -118,7 +118,7 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
-            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify">
+            <div className="dark:bg-gray-50 dark:text-gray-700 my-12 text-justify" data-aos="fade-left" data-aos-duration="2000">
                 <div className="max-w-7xl px-10 py-6 mx-auto rounded-lg shadow-sm border-2 border-indigo-700">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Nov 24, 2022</span>

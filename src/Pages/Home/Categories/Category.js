@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Category = ({ category }) => {
     const { cateImg, name, id } = category;
     return (
-        <div className='card text-white p-6 md:card-side shadow-xl bg-gray-50'>
+        <div className='card text-white p-6 md:card-side shadow-xl bg-gray-50' data-aos="fade-up" data-aos-duration="2000">
             <figure>
                 <img src={cateImg} alt="car-category" className='w-28 h-28 rounded-full' />
             </figure>
